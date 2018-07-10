@@ -39,13 +39,15 @@ def getstats(height):
 	pingrock = "<@" + rock + ">"
 	blocktime = ""
 	if timed <= 1800:
-		blocktime += "Block was too fast, {timed} minutes".format(timed=timed)
+
+		blocktime += f"Block was too fast, {timed} minutes"
 		pingrock += ""
 	elif timed >= 7200:
-		blocktime += 'Took too long, {timed} minutes.'
+		blocktime += f'Took too long, {timed} minutes.'
 		pingrock += ""
 	else:
-		blocktime += "Took {timed} minutes to make, pretty nice".format(timed=timed)
+		blocktime += f"Took {timed} minutes to make, pretty nice"
+
 		pingrock = ""
 
 	#size of the block
@@ -91,24 +93,24 @@ def getstats(height):
 
 def prettyPrintStats(blockstats):
 	msg = "```WE FOUND A NEW BLOCK!\n"
-	msg += "\nHeight: {} \n".format(blockstats['height'])
-	msg += "Hash: {} \n".format(blockstats['hash'])
-	msg += "Orphan: {} \n".format(blockstats['orphan'])
-	msg += "Reward: {} \n".format(blockstats['reward'])
-	msg += "Size: {} \n".format(blockstats['bsizes'])
-	msg += "Time took to make: {} \n".format(blockstats['blocktime'])
+	msg += f"\nHeight: {blockstats['height']} \n"
+	msg += f"Hash: {blockstats['hash']} \n"
+	msg += f"Orphan: {blockstats['orphan']} \n"
+	msg += f"Reward: {blockstats['reward']} \n"
+	msg += f"Size: {blockstats['bsizes']} \n"
+	msg += f"Time took to make: {blockstats['blocktime']} \n"
 
-	msg += " \nNo. of txs in the block: {} \n".format(blockstats['ntxs'])
-	msg += "Tx hashes in the block: {} \n".format(blockstats['hashes'])
-	msg += "Size of each tx: {} \n".format(blockstats['hahsizes'])
-	msg += "Size of all the txs: {} \n \n".format(blockstats['txsizes'])
+	msg += f" \nNo. of txs in the block: {blockstats['ntxs']} \n"
+	msg += f"Tx hashes in the block: {blockstats['hashes']} \n"
+	msg += f"Size of each tx: {blockstats['hahsizes']} \n"
+	msg += f"Size of all the txs: {blockstats['txsizes']} \n \n"
 
-	msg += "tx_extra hash: {} \n".format(blockstats['teta'])
-	msg += "Decoded version of tx_extra: {} \n".format(blockstats['deteta'])
-	msg += "Size of tx_extra: {} \n \n".format(blockstats['txes'])
+	msg += f"tx_extra hash: {blockstats['teta']} \n"
+	msg += f"Decoded version of tx_extra: {blockstats['deteta']} \n"
+	msg += f"Size of tx_extra: {blockstats['txes']} \n \n"
 
-	msg += "Percentage of txs in the block: {} % \n".format(blockstats['txp'])
-	msg += "Percentage of tx_extra in the block: {} % ```".format(blockstats['txep'])
+	msg += f"Percentage of txs in the block: {blockstats['txp']} % \n"
+	msg += f"Percentage of tx_extra in the block: {blockstats['txep']} % ```"
 
 	#msg += blockstats['pingrock']
 
