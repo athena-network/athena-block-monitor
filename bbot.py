@@ -10,7 +10,7 @@ token = open('tokenfile').read()
 client = discord.Client()
 
 
-tc = turtlecoin.TurtleCoind(host='public.turtlenode.io', port=11898)
+tc = turtlecoin.TurtleCoind(host='127.0.0.1', port=12001)
 
 tclbh = tc.get_last_block_header()['result']
 
@@ -34,18 +34,18 @@ def getstats(height):
 	prevhash = tcgl['prev_hash']
 	glb = tc.getblock(prevhash)
 	time2 = glb['block']['timestamp']
-	timed = timex - time2
+	timed = (timex - time2) / 60
 	rock = "388916188715155467"
 	pingrock = "<@" + rock + ">"
 	blocktime = ""
-	if timed <= 4:
-		blocktime += "Block was too fast, {timed} seconds".format(timed=timed)
+	if timed <= 1800:
+		blocktime += "Block was too fast, {timed} minutes".format(timed=timed)
 		pingrock += ""
-	elif timed >= 90:
-		blocktime += f'Took too long, {timed} seconds.'
+	elif timed >= 7200:
+		blocktime += f'Took too long, {timed} minutes.'
 		pingrock += ""
 	else:
-		blocktime += "Took {timed} seconds to make, pretty nice".format(timed=timed)
+		blocktime += "Took {timed} minutes to make, pretty nice".format(timed=timed)
 		pingrock = ""
 
 	#size of the block
