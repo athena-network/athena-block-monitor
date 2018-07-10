@@ -42,7 +42,7 @@ def getstats(height):
 		blocktime += "Block was too fast, {timed} minutes".format(timed=timed)
 		pingrock += ""
 	elif timed >= 7200:
-		blocktime += f'Took too long, {timed} minutes.'
+		blocktime += 'Took too long, {timed} minutes.'
 		pingrock += ""
 	else:
 		blocktime += "Took {timed} minutes to make, pretty nice".format(timed=timed)
